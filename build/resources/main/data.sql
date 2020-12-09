@@ -1,0 +1,10 @@
+INSERT INTO Clients (name) VALUES ('Dmitriy');
+INSERT INTO Clients (name) VALUES ('Andrew');
+
+INSERT INTO Accounts (number, balance, owner_id) VALUES (1111222233334444, 3000, 1);
+INSERT INTO Accounts (number, owner_id) VALUES (2222333355556666, 2);
+
+INSERT INTO Cards (card_number, account_id) VALUES (1111111111111111, 1111222233334444);
+INSERT INTO Cards (card_number, account_id) VALUES (2222222222222222, 1111222233334444);
+INSERT INTO Cards (card_number, account_id) VALUES (3333333333333333, 2222333355556666);
+INSERT INTO Cards (card_number, account_id) VALUES (4444444444444444, 2222333355556666);

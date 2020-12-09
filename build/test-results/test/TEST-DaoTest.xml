@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="DaoTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2020-12-09T21:46:44" hostname="Aleksandras-MBP.rinet.ru" time="0.09">
+  <properties/>
+  <testcase name="CardDaoTestUpdate()" classname="DaoTest" time="0.044"/>
+  <testcase name="ClientDaoTestAdd()" classname="DaoTest" time="0.008"/>
+  <testcase name="ClientDaoTestGet()" classname="DaoTest" time="0.004"/>
+  <testcase name="AccountDaoTestDelete()" classname="DaoTest" time="0.005"/>
+  <testcase name="AccountDaoTestGetAll()" classname="DaoTest" time="0.001"/>
+  <testcase name="AccountDaoTestUpdate()" classname="DaoTest" time="0.002"/>
+  <testcase name="CardDaoTestAdd()" classname="DaoTest" time="0.002"/>
+  <testcase name="CardDaoTestGet()" classname="DaoTest" time="0.002"/>
+  <testcase name="AccountDaoTestAdd()" classname="DaoTest" time="0.001"/>
+  <testcase name="AccountDaoTestGet()" classname="DaoTest" time="0.001"/>
+  <testcase name="ClientDaoTestDelete()" classname="DaoTest" time="0.002"/>
+  <testcase name="ClientDaoTestGetAll()" classname="DaoTest" time="0.001"/>
+  <testcase name="CardDaoTestDelete()" classname="DaoTest" time="0.004"/>
+  <testcase name="CardDaoTestGetAll()" classname="DaoTest" time="0.001"/>
+  <testcase name="ClientDaoTestUpdate()" classname="DaoTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
