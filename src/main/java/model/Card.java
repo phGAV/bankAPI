@@ -1,12 +1,17 @@
 package model;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Card {
+
+    @JSONField(name = "card number")
     private long number;
+
+    @JSONField(name = "account number", serialize=false)
     private long account_id;
-//    private BigDecimal balance;
 
     public Card(long number, long account_id) {
         this.number = number;

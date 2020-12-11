@@ -1,10 +1,11 @@
-package impl;
+package daoImpl;
 
 import model.Account;
 import model.Card;
 import model.Client;
+import org.h2.jdbcx.JdbcConnectionPool;
+import org.h2.tools.DeleteDbFiles;
 
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -50,13 +51,13 @@ public class CardDao implements Dao<Card> {
         return cardList;
     }
 
-    public List<Card> getAllByClientId(Client client) throws SQLException {
+    public List<Card> getAllByClientId(long id) throws SQLException {
         String sql = "SELECT * FROM Cards JOIN Accounts A on A.number = Cards.account_id " +
                      "JOIN Clients C on C.id = A.owner_id WHERE owner_id = ?";
         List<Card> cardList;
 
         try(PreparedStatement st = connection.prepareStatement(sql)) {
-            st.setLong(1, client.getId());
+            st.setLong(1, id);
             st.execute();
             cardList = setToList(st.getResultSet());
         }

@@ -1,7 +1,6 @@
-package impl;
+package daoImpl;
 
 import model.Account;
-import model.Card;
 import model.Client;
 
 import java.math.BigDecimal;

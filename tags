@@ -10,8 +10,8 @@ APP_HOME	gradlew.bat	/^set APP_HOME=%DIRNAME%$/;"	v
 Account	src/main/java/model/Account.java	/^    public Account(long number, BigDecimal balance, long owner_id) {$/;"	m	class:Account
 Account	src/main/java/model/Account.java	/^    public Account(long number, long owner_id) {$/;"	m	class:Account
 Account	src/main/java/model/Account.java	/^public class Account {$/;"	c
-AccountDao	src/main/java/impl/AccountDao.java	/^    public AccountDao(Connection connection) {$/;"	m	class:AccountDao
-AccountDao	src/main/java/impl/AccountDao.java	/^public class AccountDao implements Dao<Account> {$/;"	c
+AccountDao	src/main/java/daoImpl/AccountDao.java	/^    public AccountDao(Connection connection) {$/;"	m	class:AccountDao
+AccountDao	src/main/java/daoImpl/AccountDao.java	/^public class AccountDao implements Dao<Account> {$/;"	c
 AccountDaoTestAdd	src/test/java/DaoTest.java	/^    public void AccountDaoTestAdd() throws SQLException {$/;"	m	class:DaoTest
 AccountDaoTestDelete	src/test/java/DaoTest.java	/^    public void AccountDaoTestDelete() throws SQLException {$/;"	m	class:DaoTest
 AccountDaoTestGet	src/test/java/DaoTest.java	/^    public void AccountDaoTestGet() throws SQLException {$/;"	m	class:DaoTest
@@ -20,8 +20,8 @@ AccountDaoTestUpdate	src/test/java/DaoTest.java	/^    public void AccountDaoTest
 CLASSPATH	gradlew.bat	/^set CLASSPATH=%APP_HOME%\\gradle\\wrapper\\gradle-wrapper.jar$/;"	v
 Card	src/main/java/model/Card.java	/^    public Card(long number, long account_id) {$/;"	m	class:Card
 Card	src/main/java/model/Card.java	/^public class Card {$/;"	c
-CardDao	src/main/java/impl/CardDao.java	/^    public CardDao(Connection connection) {$/;"	m	class:CardDao
-CardDao	src/main/java/impl/CardDao.java	/^public class CardDao implements Dao<Card> {$/;"	c
+CardDao	src/main/java/daoImpl/CardDao.java	/^    public CardDao(Connection connection) {$/;"	m	class:CardDao
+CardDao	src/main/java/daoImpl/CardDao.java	/^public class CardDao implements Dao<Card> {$/;"	c
 CardDaoTestAdd	src/test/java/DaoTest.java	/^    public void CardDaoTestAdd() throws SQLException {$/;"	m	class:DaoTest
 CardDaoTestDelete	src/test/java/DaoTest.java	/^    public void CardDaoTestDelete() throws SQLException {$/;"	m	class:DaoTest
 CardDaoTestGet	src/test/java/DaoTest.java	/^    public void CardDaoTestGet() throws SQLException {$/;"	m	class:DaoTest
@@ -29,8 +29,8 @@ CardDaoTestGetAll	src/test/java/DaoTest.java	/^    public void CardDaoTestGetAll
 CardDaoTestUpdate	src/test/java/DaoTest.java	/^    public void CardDaoTestUpdate() throws SQLException {$/;"	m	class:DaoTest
 Client	src/main/java/model/Client.java	/^    public Client(String name) {$/;"	m	class:Client
 Client	src/main/java/model/Client.java	/^public class Client {$/;"	c
-ClientDao	src/main/java/impl/ClientDao.java	/^    public ClientDao(Connection connection) throws SQLException {$/;"	m	class:ClientDao
-ClientDao	src/main/java/impl/ClientDao.java	/^public class ClientDao implements Dao<Client> {$/;"	c
+ClientDao	src/main/java/daoImpl/ClientDao.java	/^    public ClientDao(Connection connection) throws SQLException {$/;"	m	class:ClientDao
+ClientDao	src/main/java/daoImpl/ClientDao.java	/^public class ClientDao implements Dao<Client> {$/;"	c
 ClientDaoTestAdd	src/test/java/DaoTest.java	/^    public void ClientDaoTestAdd() throws SQLException {$/;"	m	class:DaoTest
 ClientDaoTestDelete	src/test/java/DaoTest.java	/^    public void ClientDaoTestDelete() throws SQLException {$/;"	m	class:DaoTest
 ClientDaoTestGet	src/test/java/DaoTest.java	/^    public void ClientDaoTestGet() throws SQLException {$/;"	m	class:DaoTest
@@ -39,31 +39,31 @@ ClientDaoTestUpdate	src/test/java/DaoTest.java	/^    public void ClientDaoTestUp
 DEFAULT_JVM_OPTS	gradlew.bat	/^set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m"$/;"	v
 DIRNAME	gradlew.bat	/^if "%DIRNAME%" == "" set DIRNAME=.$/;"	v
 DIRNAME	gradlew.bat	/^set DIRNAME=%~dp0$/;"	v
-Dao	src/main/java/impl/Dao.java	/^public interface Dao<T> {$/;"	i
+Dao	src/main/java/daoImpl/Dao.java	/^public interface Dao<T> {$/;"	i
 DaoTest	src/test/java/DaoTest.java	/^public class DaoTest {$/;"	c
 JAVA_EXE	gradlew.bat	/^set JAVA_EXE=%JAVA_HOME%\/bin\/java.exe$/;"	v
 JAVA_EXE	gradlew.bat	/^set JAVA_EXE=java.exe$/;"	v
 JAVA_HOME	gradlew.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
 Main	src/main/java/Main.java	/^public class Main {$/;"	c
 account_id	src/main/java/model/Card.java	/^    private long account_id;$/;"	f	class:Card	file:
-add	src/main/java/impl/AccountDao.java	/^    public void add(Account account) throws SQLException {$/;"	m	class:AccountDao
-add	src/main/java/impl/CardDao.java	/^    public void add(Card card) throws SQLException {$/;"	m	class:CardDao
-add	src/main/java/impl/ClientDao.java	/^    public void add(Client client) throws SQLException {$/;"	m	class:ClientDao
-add	src/main/java/impl/Dao.java	/^    void add(T t) throws SQLException;$/;"	m	interface:Dao
+add	src/main/java/daoImpl/AccountDao.java	/^    public void add(Account account) throws SQLException {$/;"	m	class:AccountDao
+add	src/main/java/daoImpl/CardDao.java	/^    public void add(Card card) throws SQLException {$/;"	m	class:CardDao
+add	src/main/java/daoImpl/ClientDao.java	/^    public void add(Client client) throws SQLException {$/;"	m	class:ClientDao
+add	src/main/java/daoImpl/Dao.java	/^    void add(T t) throws SQLException;$/;"	m	interface:Dao
 addClass	build/reports/tests/test/js/report.js	/^    function addClass(element, classValue) {$/;"	f
 balance	src/main/java/model/Account.java	/^    private BigDecimal balance;$/;"	f	class:Account	file:
 cardList	src/main/java/model/Account.java	/^    List<Card> cardList;$/;"	f	class:Account
 changeElementClass	build/reports/tests/test/js/report.js	/^    function changeElementClass(element, classValue) {$/;"	f
 close	src/test/java/DaoTest.java	/^    public static void close() throws SQLException {$/;"	m	class:DaoTest
-connection	src/main/java/impl/AccountDao.java	/^    Connection connection;$/;"	f	class:AccountDao
-connection	src/main/java/impl/CardDao.java	/^    Connection connection;$/;"	f	class:CardDao
-connection	src/main/java/impl/ClientDao.java	/^    Connection connection;$/;"	f	class:ClientDao
+connection	src/main/java/daoImpl/AccountDao.java	/^    Connection connection;$/;"	f	class:AccountDao
+connection	src/main/java/daoImpl/CardDao.java	/^    Connection connection;$/;"	f	class:CardDao
+connection	src/main/java/daoImpl/ClientDao.java	/^    Connection connection;$/;"	f	class:ClientDao
 connection	src/test/java/DaoTest.java	/^    private static Connection connection;$/;"	f	class:DaoTest	file:
 cp	src/test/java/DaoTest.java	/^    private static JdbcConnectionPool cp;$/;"	f	class:DaoTest	file:
-delete	src/main/java/impl/AccountDao.java	/^    public void delete(Account account) throws SQLException {$/;"	m	class:AccountDao
-delete	src/main/java/impl/CardDao.java	/^    public void delete(Card card) throws SQLException {$/;"	m	class:CardDao
-delete	src/main/java/impl/ClientDao.java	/^    public void delete(Client client) throws SQLException {$/;"	m	class:ClientDao
-delete	src/main/java/impl/Dao.java	/^    void delete(T t) throws SQLException;$/;"	m	interface:Dao
+delete	src/main/java/daoImpl/AccountDao.java	/^    public void delete(Account account) throws SQLException {$/;"	m	class:AccountDao
+delete	src/main/java/daoImpl/CardDao.java	/^    public void delete(Card card) throws SQLException {$/;"	m	class:CardDao
+delete	src/main/java/daoImpl/ClientDao.java	/^    public void delete(Client client) throws SQLException {$/;"	m	class:ClientDao
+delete	src/main/java/daoImpl/Dao.java	/^    void delete(T t) throws SQLException;$/;"	m	interface:Dao
 deselectAll	build/reports/tests/test/js/report.js	/^    function deselectAll() {$/;"	f
 die	gradlew	/^die () {$/;"	f
 end	gradlew.bat	/^:end$/;"	l
@@ -79,18 +79,18 @@ findJavaFromJavaHome	gradlew.bat	/^:findJavaFromJavaHome$/;"	l
 findTabs	build/reports/tests/test/js/report.js	/^    function findTabs(container) {$/;"	f
 findTitles	build/reports/tests/test/js/report.js	/^    function findTitles(tabs) {$/;"	f
 forAllCodeBlocks	build/reports/tests/test/js/report.js	/^    function forAllCodeBlocks(operation) {$/;"	f
-get	src/main/java/impl/AccountDao.java	/^    public Account get(long number) throws SQLException {$/;"	m	class:AccountDao
-get	src/main/java/impl/CardDao.java	/^    public Card get(long number) throws SQLException {$/;"	m	class:CardDao
-get	src/main/java/impl/ClientDao.java	/^    public Client get(long id) throws SQLException {$/;"	m	class:ClientDao
-get	src/main/java/impl/Dao.java	/^    T get(long id) throws SQLException;$/;"	m	interface:Dao
+get	src/main/java/daoImpl/AccountDao.java	/^    public Account get(long number) throws SQLException {$/;"	m	class:AccountDao
+get	src/main/java/daoImpl/CardDao.java	/^    public Card get(long number) throws SQLException {$/;"	m	class:CardDao
+get	src/main/java/daoImpl/ClientDao.java	/^    public Client get(long id) throws SQLException {$/;"	m	class:ClientDao
+get	src/main/java/daoImpl/Dao.java	/^    T get(long id) throws SQLException;$/;"	m	interface:Dao
 getAccount_id	src/main/java/model/Card.java	/^    public long getAccount_id() {$/;"	m	class:Card
-getAll	src/main/java/impl/AccountDao.java	/^    public List<Account> getAll() throws SQLException {$/;"	m	class:AccountDao
-getAll	src/main/java/impl/CardDao.java	/^    public List<Card> getAll() throws SQLException {$/;"	m	class:CardDao
-getAll	src/main/java/impl/ClientDao.java	/^    public List<Client> getAll() throws SQLException {$/;"	m	class:ClientDao
-getAll	src/main/java/impl/Dao.java	/^    List<T> getAll() throws SQLException;$/;"	m	interface:Dao
-getAllByAccountId	src/main/java/impl/CardDao.java	/^    public List<Card> getAllByAccountId(Account account) throws SQLException {$/;"	m	class:CardDao
-getAllByClientId	src/main/java/impl/AccountDao.java	/^    public List<Account> getAllByClientId(Client client) throws SQLException {$/;"	m	class:AccountDao
-getAllByClientId	src/main/java/impl/CardDao.java	/^    public List<Card> getAllByClientId(Client client) throws SQLException {$/;"	m	class:CardDao
+getAll	src/main/java/daoImpl/AccountDao.java	/^    public List<Account> getAll() throws SQLException {$/;"	m	class:AccountDao
+getAll	src/main/java/daoImpl/CardDao.java	/^    public List<Card> getAll() throws SQLException {$/;"	m	class:CardDao
+getAll	src/main/java/daoImpl/ClientDao.java	/^    public List<Client> getAll() throws SQLException {$/;"	m	class:ClientDao
+getAll	src/main/java/daoImpl/Dao.java	/^    List<T> getAll() throws SQLException;$/;"	m	interface:Dao
+getAllByAccountId	src/main/java/daoImpl/CardDao.java	/^    public List<Card> getAllByAccountId(Account account) throws SQLException {$/;"	m	class:CardDao
+getAllByClientId	src/main/java/daoImpl/AccountDao.java	/^    public List<Account> getAllByClientId(Client client) throws SQLException {$/;"	m	class:AccountDao
+getAllByClientId	src/main/java/daoImpl/CardDao.java	/^    public List<Card> getAllByClientId(Client client) throws SQLException {$/;"	m	class:CardDao
 getBalance	src/main/java/model/Account.java	/^    public BigDecimal getBalance() {$/;"	m	class:Account
 getCheckBox	build/reports/tests/test/js/report.js	/^    function getCheckBox() {$/;"	f
 getClassAttribute	build/reports/tests/test/js/report.js	/^    function getClassAttribute(element) {$/;"	f
@@ -104,10 +104,10 @@ hashCode	src/main/java/model/Account.java	/^    public int hashCode() {$/;"	m	cl
 hashCode	src/main/java/model/Card.java	/^    public int hashCode() {$/;"	m	class:Card
 hashCode	src/main/java/model/Client.java	/^    public int hashCode() {$/;"	m	class:Client
 id	src/main/java/model/Client.java	/^    private long id;$/;"	f	class:Client	file:
-impl	src/main/java/impl/AccountDao.java	/^package impl;$/;"	p
-impl	src/main/java/impl/CardDao.java	/^package impl;$/;"	p
-impl	src/main/java/impl/ClientDao.java	/^package impl;$/;"	p
-impl	src/main/java/impl/Dao.java	/^package impl;$/;"	p
+daoImpl	src/main/java/daoImpl/AccountDao.java	/^package daoImpl;$/;"	p
+daoImpl	src/main/java/daoImpl/CardDao.java	/^package daoImpl;$/;"	p
+daoImpl	src/main/java/daoImpl/ClientDao.java	/^package daoImpl;$/;"	p
+daoImpl	src/main/java/daoImpl/Dao.java	/^package daoImpl;$/;"	p
 init	src/test/java/DaoTest.java	/^    public static void init() throws SQLException {$/;"	m	class:DaoTest
 initControls	build/reports/tests/test/js/report.js	/^    function initControls() {$/;"	f
 initTabs	build/reports/tests/test/js/report.js	/^    function initTabs() {$/;"	f
@@ -131,14 +131,14 @@ setName	src/main/java/model/Client.java	/^    public void setName(String name) {
 setNumber	src/main/java/model/Account.java	/^    public void setNumber(long number) {$/;"	m	class:Account
 setNumber	src/main/java/model/Card.java	/^    public void setNumber(long number) {$/;"	m	class:Card
 setOwnerId	src/main/java/model/Account.java	/^    public void setOwnerId(long owner_id) {$/;"	m	class:Account
-setToList	src/main/java/impl/CardDao.java	/^    private List<Card> setToList(ResultSet resultSet) throws SQLException {$/;"	m	class:CardDao	file:
-statement	src/main/java/impl/ClientDao.java	/^    Statement statement;$/;"	f	class:ClientDao
+setToList	src/main/java/daoImpl/CardDao.java	/^    private List<Card> setToList(ResultSet resultSet) throws SQLException {$/;"	m	class:CardDao	file:
+statement	src/main/java/daoImpl/ClientDao.java	/^    Statement statement;$/;"	f	class:ClientDao
 switchTab	build/reports/tests/test/js/report.js	/^    function switchTab() {$/;"	f
 toString	src/main/java/model/Client.java	/^    public String toString() {$/;"	m	class:Client
 toggleLineWrapping	build/reports/tests/test/js/report.js	/^    function toggleLineWrapping() {$/;"	f
-update	src/main/java/impl/AccountDao.java	/^    public void update(Account account, String[] params) throws SQLException {$/;"	m	class:AccountDao
-update	src/main/java/impl/CardDao.java	/^    public void update(Card card, String[] params) throws SQLException {$/;"	m	class:CardDao
-update	src/main/java/impl/ClientDao.java	/^    public void update(Client client, String[] params) throws SQLException {$/;"	m	class:ClientDao
-update	src/main/java/impl/Dao.java	/^    void update(T t, String[] params) throws SQLException;$/;"	m	interface:Dao
+update	src/main/java/daoImpl/AccountDao.java	/^    public void update(Account account, String[] params) throws SQLException {$/;"	m	class:AccountDao
+update	src/main/java/daoImpl/CardDao.java	/^    public void update(Card card, String[] params) throws SQLException {$/;"	m	class:CardDao
+update	src/main/java/daoImpl/ClientDao.java	/^    public void update(Client client, String[] params) throws SQLException {$/;"	m	class:ClientDao
+update	src/main/java/daoImpl/Dao.java	/^    void update(T t, String[] params) throws SQLException;$/;"	m	interface:Dao
 warn	gradlew	/^warn () {$/;"	f
 window.onload	build/reports/tests/test/js/report.js	/^    window.onload = function() {$/;"	f

@@ -1,18 +1,15 @@
-import impl.AccountDao;
-import impl.CardDao;
-import impl.ClientDao;
+import daoImpl.AccountDao;
+import daoImpl.CardDao;
+import daoImpl.ClientDao;
 import model.Account;
 import model.Card;
 import model.Client;
 import org.h2.jdbcx.JdbcConnectionPool;
 import org.h2.tools.DeleteDbFiles;
-import org.h2.tools.RunScript;
-import org.h2.tools.Server;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileReader;
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.Iterator;
