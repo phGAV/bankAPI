@@ -1,16 +1,11 @@
 package model;
 
-import com.alibaba.fastjson.annotation.JSONField;
-
 import java.util.List;
 import java.util.Objects;
 
 public class Client {
 
-    @JSONField(name = "id")
     private long id;
-
-    @JSONField(name = "name")
     private String name;
 //    List<Account> accountList;
 

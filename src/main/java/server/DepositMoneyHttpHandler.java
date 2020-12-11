@@ -1,14 +1,11 @@
 package server;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
+import com.google.gson.Gson;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import daoImpl.AccountDao;
-import daoImpl.CardDao;
 import model.Account;
-import model.Card;
 import org.h2.jdbcx.JdbcConnectionPool;
 
 import java.io.*;
@@ -16,7 +13,6 @@ import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
 
 public class DepositMoneyHttpHandler implements HttpHandler {
     private static final int STATUS_OK = 200;
@@ -34,8 +30,8 @@ public class DepositMoneyHttpHandler implements HttpHandler {
         Deposit requestParamValue = null;
 
         if("POST".equals(httpExchange.getRequestMethod())) {
-            requestParamValue = handlePostRequest(httpExchange);
             try {
+                requestParamValue = handlePostRequest(httpExchange);
                 handleResponse(httpExchange, requestParamValue);
             } catch (SQLException e) {
                 httpExchange.sendResponseHeaders(STATUS_SERVER_ERROR, 0);
@@ -46,29 +42,32 @@ public class DepositMoneyHttpHandler implements HttpHandler {
         }
     }
 
-    //-H "Content-Type: application/json; charset=UTF-8"
-//    curl -X POST -H "Content-Type: application/json; charset=UTF-8" --data ./src/main/java/server/deposit.json http://localhost:8080/depositMoney
 //    curl -X POST localhost:8080/depositMoney -d '{"account":1111222233334444, "deposit":7000}'
 
-    class Deposit {
+    static class Deposit {
         long account;
-        BigDecimal value;
+        BigDecimal deposit;
+
+        public Deposit() {
+        }
     }
 
     private Deposit handlePostRequest(HttpExchange httpExchange) throws IOException {
-//        InputStream inputStream = httpExchange.getRequestBody();
-        BufferedReader httpInput = new BufferedReader(new InputStreamReader(
-                httpExchange.getRequestBody(), "UTF-8"));
+        InputStream inputStream = httpExchange.getRequestBody();
+        BufferedReader httpInput = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+
         StringBuilder in = new StringBuilder();
-        String input;
-        while ((input = httpInput.readLine()) != null) {
-            in.append(input).append(" ");
+        int b;
+        while((b = httpInput.read()) != -1) {
+            in.append((char)b);
         }
+
+        Gson gson = new Gson();
+        Deposit deposit = gson.fromJson(in.toString(), Deposit.class);
+
         httpInput.close();
-
-//        String jsonInput = JSON.toJSONString(in.toString());
-
-        return JSON.parseObject(in.toString(), Deposit.class);
+        inputStream.close();
+        return deposit;
     }
 
     private void handleResponse(HttpExchange httpExchange, Deposit requestParamValue) throws IOException, SQLException {
@@ -78,10 +77,11 @@ public class DepositMoneyHttpHandler implements HttpHandler {
 
         AccountDao accountDao = new AccountDao(connection);
         Account result = accountDao.get(requestParamValue.account);
-        BigDecimal newBalance = result.getBalance().add(requestParamValue.value);
+        BigDecimal newBalance = result.getBalance().add(requestParamValue.deposit);
         accountDao.update(result, new String[]{newBalance.toString()});
 
-        String jsonOutput = "SUCCESS\n" + JSON.toJSONString(result);
+        Gson gson = new Gson();
+        String jsonOutput = "SUCCESS\n" + gson.toJson(result);
 
         httpExchange.sendResponseHeaders(STATUS_OK, jsonOutput.length());
 

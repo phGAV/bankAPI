@@ -1,6 +1,6 @@
 package server;
 
-import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -64,7 +64,8 @@ public class AccountBalanceHttpHandler implements HttpHandler {
         AccountDao accountDao = new AccountDao(connection);
         BigDecimal balance = accountDao.get(number).getBalance();
 
-        String jsonOutput = JSON.toJSONString(balance);
+        Gson gson = new Gson();
+        String jsonOutput = gson.toJson(balance);
 
         httpExchange.sendResponseHeaders(STATUS_OK, jsonOutput.length());
 

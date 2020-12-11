@@ -4,24 +4,24 @@ server/AccountBalanceHttpHandler.java
  server.AccountBalanceHttpHandler
 daoImpl/Dao.java
  daoImpl.Dao
-model/Card.java
- model.Card
-daoImpl/CardDao.java
- daoImpl.CardDao
+daoImpl/ClientDao.java
+ daoImpl.ClientDao
+model/Client.java
+ model.Client
 Main.java
  Main
 model/Account.java
  model.Account
-daoImpl/ClientDao.java
- daoImpl.ClientDao
-server/CardListHttpHandler.java
- server.CardListHttpHandler
-model/Client.java
- model.Client
+model/Card.java
+ model.Card
 server/NewCardHttpHandler.java
  server.NewCardHttpHandler
+server/CardListHttpHandler.java
+ server.CardListHttpHandler
 server/DepositMoneyHttpHandler.java
  server.DepositMoneyHttpHandler
  server.DepositMoneyHttpHandler$Deposit
+daoImpl/CardDao.java
+ daoImpl.CardDao
 server/HttpServerCreate.java
  server.HttpServerCreate

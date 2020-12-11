@@ -1,6 +1,6 @@
 package server;
 
-import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -8,12 +8,10 @@ import daoImpl.CardDao;
 import model.Card;
 import org.h2.jdbcx.JdbcConnectionPool;
 
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
 
 public class NewCardHttpHandler implements HttpHandler {
     private static final int STATUS_OK = 200;
@@ -28,11 +26,11 @@ public class NewCardHttpHandler implements HttpHandler {
 
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
-        String requestParamValue = null;
+        Card requestParamValue = null;
 
         if("POST".equals(httpExchange.getRequestMethod())) {
-            requestParamValue = handlePostRequest(httpExchange);
             try {
+                requestParamValue = handlePostRequest(httpExchange);
                 handleResponse(httpExchange, requestParamValue);
             } catch (SQLException e) {
                 httpExchange.sendResponseHeaders(STATUS_SERVER_ERROR, 0);
@@ -43,24 +41,39 @@ public class NewCardHttpHandler implements HttpHandler {
         }
     }
 
-    private String handlePostRequest(HttpExchange httpExchange) {
-        return null;
+//    curl -X POST localhost:8080/newCard -d '{"account_id":1111222233334444, "number":7000700070007000}'
+
+    private Card handlePostRequest(HttpExchange httpExchange) throws IOException {
+        InputStream inputStream = httpExchange.getRequestBody();
+        BufferedReader httpInput = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+
+        StringBuilder in = new StringBuilder();
+        int b;
+        while((b = httpInput.read()) != -1) {
+            in.append((char)b);
+        }
+
+        Gson gson = new Gson();
+        Card card = gson.fromJson(in.toString(), Card.class);
+
+        httpInput.close();
+        inputStream.close();
+        return card;
     }
 
-    private void handleResponse(HttpExchange httpExchange, String requestParamValue) throws IOException, SQLException {
+    private void handleResponse(HttpExchange httpExchange, Card requestParamValue) throws IOException, SQLException {
         OutputStream outputStream = httpExchange.getResponseBody();
         Headers headers = httpExchange.getResponseHeaders();
         headers.set("Content-Type", String.format("application/json; charset=%s", StandardCharsets.UTF_8));
 
-        long id = Long.parseLong(requestParamValue);
         CardDao cardDao = new CardDao(connection);
-        List<Card> resultList = cardDao.getAllByClientId(id);
+        cardDao.add(requestParamValue);
 
-        String jsonOutput = JSON.toJSONString(resultList);
+        String response = "SUCCESS";
 
-        httpExchange.sendResponseHeaders(STATUS_OK, jsonOutput.length());
+        httpExchange.sendResponseHeaders(STATUS_OK, response.length());
 
-        outputStream.write(jsonOutput.getBytes());
+        outputStream.write(response.getBytes());
         outputStream.flush();
         outputStream.close();
     }

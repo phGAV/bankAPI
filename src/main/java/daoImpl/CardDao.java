@@ -2,9 +2,6 @@ package daoImpl;
 
 import model.Account;
 import model.Card;
-import model.Client;
-import org.h2.jdbcx.JdbcConnectionPool;
-import org.h2.tools.DeleteDbFiles;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

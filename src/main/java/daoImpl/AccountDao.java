@@ -91,11 +91,14 @@ public class AccountDao implements Dao<Account> {
     @Override
     public void update(Account account, String[] params) throws SQLException {
         String sql = "UPDATE Accounts SET balance = ? WHERE number = ?";
+        BigDecimal balance = new BigDecimal(params[0]);
 
         try (PreparedStatement st = connection.prepareStatement(sql)) {
-            st.setBigDecimal(1, new BigDecimal(params[0]));
+            st.setBigDecimal(1, balance);
             st.setLong(2, account.getNumber());
             st.execute();
+
+            account.setBalance(balance);
         }
     }
 
